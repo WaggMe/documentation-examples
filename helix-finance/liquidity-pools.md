@@ -13,11 +13,11 @@ flowchart
         ETH_USDC((USDC)):::stable
         ETH_USDT((USDT)):::stable
         DAI((DAI)):::stable
-        Helix === |59,608   | wETH
+        Helix === |63,567| wETH
         DAI -.- |9,789| ETH_USDC
-        ETH_USDC --- |7,771| wETH
-        DAI --- |8,075| wETH
-        ETH_USDT -.- |4,696| ETH_USDC
+        ETH_USDC --- |9,813| wETH
+        DAI --- |8,496| wETH
+        ETH_USDT -.- |8,995| ETH_USDC
     end
 
     subgraph Solana
