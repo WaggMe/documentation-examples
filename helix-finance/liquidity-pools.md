@@ -24,7 +24,6 @@ flowchart
         A --- |small-pool| C
         C -.- |unlisted-pool| B
     end
-
 ```
 
 ___
@@ -38,6 +37,7 @@ flowchart
         direction TB
         wETH(wETH)
         Helix(Helix)
+        wBTC(wBTC)
         ETH_USDC((USDC)):::stable
         ETH_USDT((USDT)):::stable
         DAI((DAI)):::stable
@@ -46,9 +46,16 @@ flowchart
         ETH_USDC --- |19,178| wETH
         DAI --- |19,692| wETH
         ETH_USDT --- |16,705| ETH_USDC
-        Helix -..- |soon| ETH_USDC
+        wETH --- |273| wBTC
+        Helix -.- |soon| ETH_USDC
     end
 
+    subgraph Bitcoin
+        BTC(BTC)
+    end
+
+    wBTC -..- BTC
+    
     subgraph Solana
         Sol(SOL)
         SOL_USDC((USDC)):::stable
@@ -65,6 +72,5 @@ flowchart
         USN((USN)):::stable
     end
 
-    subgraph Other Chain X
-    end
+    linkStyle 7 stroke:#BBF,stroke-width:1px;
 ```
