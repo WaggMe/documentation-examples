@@ -80,10 +80,5 @@ flowchart
         BUSDC((BUSD)):::stable
     end
 
-    subgraph NEAR Protocol
-        NEAR(NEAR)
-        USN((USN)):::stable
-    end
-
     linkStyle 7 stroke:#BBF,stroke-width:1px;
 ```
