@@ -37,6 +37,18 @@ ___
 flowchart BT
     classDef stable fill:#ggg,stroke:#EE2,stroke-width:4px;
 
+    BTC_Helix -.- MC_SWAP
+    Helix -.- MC_SWAP
+    BSC_Helix -.- MC_SWAP
+    SOL_Helix -.- MC_SWAP
+
+    wBTC -.- BTC
+    SOL_Helix -.- Sol
+    BSC_Helix -.- BNB
+    BTC_Helix -.- BTC
+
+    linkStyle 0,1,2,3,4,5,6,7 stroke:#BBF,stroke-width:2px;
+
     subgraph -MULTICHAIN-
         MC_SWAP(Multichain Bridge)
     end        
@@ -51,19 +63,26 @@ flowchart BT
         FRAX(FRAX)
         BADGER(BADGER)
         APE(APE)
+        CULT(CULT)
+        BOND(BOND)
+        BAL(BAL)
         ETH_USDC((USDC)):::stable
         ETH_USDT((USDT)):::stable
         DAI((DAI)):::stable
-        Helix === |72,560| wETH
+        Helix === |75,800| wETH
+        Helix --- |26,624| ETH_USDC
         DAI --- |19,490| ETH_USDC
-        ETH_USDC --- |22,272| wETH
-        DAI --- |20,702| wETH
+        ETH_USDC --- |21,400| wETH
+        DAI --- |21473| wETH
         ETH_USDT --- |25,937| ETH_USDC
-        wETH --- |8,736| wBTC
+        wETH --- |319| wBTC
         TRIBE --- |338| FEI
         FXS --- |374| FRAX
-        BADGER --- |584| Helix
-        APE --- |1,106| Helix
+        BADGER --- |615| Helix
+        APE --- |1,164| Helix
+        CULT --- |1,897| wETH
+        BOND --- |100| ETH_USDC
+        BAL --- |330| Helix
     end
 
     subgraph Bitcoin
@@ -83,18 +102,6 @@ flowchart BT
         BSC_Helix(Helix)
         BUSDC((BUSD)):::stable
     end
-
-    BTC_Helix -.- MC_SWAP
-    Helix -.- MC_SWAP
-    BSC_Helix -.- MC_SWAP
-    SOL_Helix -.- MC_SWAP
-
-    wBTC -.- BTC
-    SOL_Helix -.- Sol
-    BSC_Helix -.- BNB
-    BTC_Helix -.- BTC
-
-    linkStyle 10,11,12,13,14,15,16,17 stroke:#BBF,stroke-width:2px;
 ```
 
 Reference Quotes:
