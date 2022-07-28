@@ -26,7 +26,7 @@ flowchart
         C -.- |unlisted-pool| B
         C -.- |same token| D
 
-        linkStyle 3 stroke:#BBF,stroke-width:3px;
+        linkStyle 3 stroke:#BBF,stroke-width:2px;
     end
 ```
 
@@ -34,14 +34,17 @@ ___
 
 ```mermaid
 
-flowchart
+flowchart BT
     classDef stable fill:#ggg,stroke:#EE2,stroke-width:4px;
 
+    subgraph -MULTICHAIN-
+        MC_SWAP(Multichain Bridge)
+    end        
+
     subgraph Ethereum
-        direction TB
         wETH(wETH)
-        Helix(Helix)
         wBTC(wBTC)
+        Helix(HELIX)
         TRIBE(TRIBE)
         FEI(FEI)
         FXS(FXS)
@@ -51,34 +54,49 @@ flowchart
         ETH_USDC((USDC)):::stable
         ETH_USDT((USDT)):::stable
         DAI((DAI)):::stable
-        Helix === |68,320| wETH
+        Helix === |72,560| wETH
         DAI --- |19,490| ETH_USDC
-        ETH_USDC --- |22,082| wETH
-        DAI --- |20,784| wETH
-        ETH_USDT --- |19,705| ETH_USDC
-        wETH --- |8,588| wBTC
-        TRIBE --- |48| FEI
-        FXS --- |129| FRAX
-        BADGER --- |540| Helix
-        APE --- |177| Helix
+        ETH_USDC --- |22,272| wETH
+        DAI --- |20,702| wETH
+        ETH_USDT --- |25,937| ETH_USDC
+        wETH --- |8,736| wBTC
+        TRIBE --- |338| FEI
+        FXS --- |374| FRAX
+        BADGER --- |584| Helix
+        APE --- |1,106| Helix
     end
 
     subgraph Bitcoin
         BTC(BTC)
+        BTC_Helix(Helix)
     end
 
-    wBTC -..- BTC
-    
     subgraph Solana
         Sol(SOL)
+        SOL_Helix(Helix)
         SOL_USDC((USDC)):::stable
         SOL_USDT((USDT)):::stable
     end
 
     subgraph BSC
         BNB(BNB)
+        BSC_Helix(Helix)
         BUSDC((BUSD)):::stable
     end
 
-    linkStyle 7 stroke:#BBF,stroke-width:1px;
+    BTC_Helix -.- MC_SWAP
+    Helix -.- MC_SWAP
+    BSC_Helix -.- MC_SWAP
+    SOL_Helix -.- MC_SWAP
+
+    wBTC -.- BTC
+    SOL_Helix -.- Sol
+    BSC_Helix -.- BNB
+    BTC_Helix -.- BTC
+
+    linkStyle 10,11,12,13,14,15,16,17 stroke:#BBF,stroke-width:2px;
 ```
+
+Reference Quotes:
+
+- *"yes that's right.. you'll be able to move HELIX from Bitcoin to Ethereum to Solana to BSC by the end of the expansion, each network will have HELIX-WETH, or HELIX-RBTC, or HELIX-SOL, or HELIX-BNB you'll be able to then enter that market via"* ([link](https://discord.com/channels/894851963483750430/894855639942176799/1002198215560544307))
