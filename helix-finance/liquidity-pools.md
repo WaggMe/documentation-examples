@@ -20,9 +20,13 @@ flowchart
         A(A)
         B(B)
         C((C)):::stable
+        D((D)):::stable
         A === |large-pool| B
         A --- |small-pool| C
         C -.- |unlisted-pool| B
+        C -.- |same token| D
+
+        linkStyle 3 stroke:#BBF,stroke-width:3px;
     end
 ```
 
@@ -38,16 +42,25 @@ flowchart
         wETH(wETH)
         Helix(Helix)
         wBTC(wBTC)
+        TRIBE(TRIBE)
+        FEI(FEI)
+        FXS(FXS)
+        FRAX(FRAX)
+        BADGER(BADGER)
+        APE(APE)
         ETH_USDC((USDC)):::stable
         ETH_USDT((USDT)):::stable
         DAI((DAI)):::stable
-        Helix === |113,354| wETH
-        DAI --- |20,441| ETH_USDC
-        ETH_USDC --- |19,178| wETH
-        DAI --- |19,692| wETH
-        ETH_USDT --- |16,705| ETH_USDC
-        wETH --- |273| wBTC
-        Helix -.- |soon| ETH_USDC
+        Helix === |68,320| wETH
+        DAI --- |19,490| ETH_USDC
+        ETH_USDC --- |22,082| wETH
+        DAI --- |20,784| wETH
+        ETH_USDT --- |19,705| ETH_USDC
+        wETH --- |8,588| wBTC
+        TRIBE --- |48| FEI
+        FXS --- |129| FRAX
+        BADGER --- |540| Helix
+        APE --- |177| Helix
     end
 
     subgraph Bitcoin
