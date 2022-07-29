@@ -78,20 +78,22 @@ flowchart BT
             DAI((DAI)):::stable
         end
 
-        Helix === |76,978| wETH
-        Helix --- |30,530| ETH_USDC
-        DAI --- |19,101| ETH_USDC
+        Helix === |76,140| wETH
+        Helix --- |29,986| ETH_USDC
+        DAI --- |19,651| ETH_USDC
         ETH_USDC --- |21,654| wETH
         DAI --- |21,253| wETH
         ETH_USDT --- |20,252| ETH_USDC
         wETH --- |970| wBTC
         TRIBE --- |338| FEI
         FXS --- |724| FRAX
-        BADGER --- |616| Helix
-        APE --- |548| Helix
-        CULT --- |2,332| wETH
+        BADGER --- |602| Helix
+        APE --- |536| Helix
+        CULT --- |1,640| wETH
         BOND --- |847| ETH_USDC
-        BAL --- |2,402| Helix
+        BAL --- |2,141| Helix
+        FRAX --- |122| ETH_USDC
+        TRIBE --- |154| Helix
     end
 
     subgraph Bitcoin-RSK
