@@ -21,12 +21,16 @@ flowchart
         B(B)
         C((C)):::stable
         D((D)):::stable
+        E(E)
         A === |large-pool| B
         A --- |small-pool| C
         C -.- |unlisted-pool| B
         C -.- |same token| D
+        B --- |external platform| E
+        D --- |external platform| E
 
-        linkStyle 3 stroke:#BBF,stroke-width:2px;
+        linkStyle 3 stroke:#B8F,stroke-width:2px;
+        linkStyle 4,5 stroke:#940,stroke-width:3px;
     end
 ```
 
@@ -37,8 +41,8 @@ ___
 flowchart BT
     classDef stable fill:#ggg,stroke:#EE2,stroke-width:4px;
 
-    BTC_Helix -.- MC_SWAP
-    Helix -.- MC_SWAP
+    BTC_Helix --- MC_SWAP
+    Helix --- MC_SWAP
     BSC_Helix -.- MC_SWAP
     SOL_Helix -.- MC_SWAP
 
@@ -47,7 +51,8 @@ flowchart BT
     BSC_Helix -.- BNB
     BTC_Helix -.- BTC
 
-    linkStyle 0,1,2,3,4,5,6,7 stroke:#BBF,stroke-width:2px;
+    linkStyle 0,1 stroke:#940,stroke-width:3px;
+    linkStyle 2,3,4,5,6,7 stroke:#B8F,stroke-width:2px;
 
     subgraph -MULTICHAIN-
         MC_SWAP(Multichain Bridge)
@@ -89,8 +94,8 @@ flowchart BT
         BAL --- |2,402| Helix
     end
 
-    subgraph Bitcoin
-        BTC(BTC)
+    subgraph Bitcoin-RSK
+        BTC(RBTC)
         BTC_Helix(Helix)
     end
 
