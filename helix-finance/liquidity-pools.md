@@ -59,24 +59,25 @@ flowchart BT
     end        
 
     subgraph Ethereum
+        
+        subgraph ETH-Stables
+            ETH_USDT((USDT)):::stable
+            DAI((DAI)):::stable
+            ETH_USDC((USDC)):::stable
+        end
+        
         wETH(wETH)
         wBTC(wBTC)
         Helix(HELIX)
-        TRIBE(TRIBE)
-        FEI(FEI)
         FXS(FXS)
         FRAX(FRAX)
         BADGER(BADGER)
+        TRIBE(TRIBE)
+        FEI(FEI)
         APE(APE)
         CULT(CULT)
         BOND(BOND)
         BAL(BAL)
-        
-        subgraph ETH-Stables
-            ETH_USDC((USDC)):::stable
-            ETH_USDT((USDT)):::stable
-            DAI((DAI)):::stable
-        end
 
         Helix === |76,140| wETH
         Helix --- |29,986| ETH_USDC
