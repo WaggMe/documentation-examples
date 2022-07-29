@@ -66,9 +66,13 @@ flowchart BT
         CULT(CULT)
         BOND(BOND)
         BAL(BAL)
-        ETH_USDC((USDC)):::stable
-        ETH_USDT((USDT)):::stable
-        DAI((DAI)):::stable
+        
+        subgraph ETH-Stables
+            ETH_USDC((USDC)):::stable
+            ETH_USDT((USDT)):::stable
+            DAI((DAI)):::stable
+        end
+
         Helix === |76,978| wETH
         Helix --- |30,530| ETH_USDC
         DAI --- |19,101| ETH_USDC
