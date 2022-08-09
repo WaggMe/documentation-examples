@@ -38,7 +38,7 @@ ___
 
 ```mermaid
 
-flowchart BT
+flowchart
     classDef stable fill:#ggg,stroke:#EE2,stroke-width:4px;
 
     BTC_Helix --- MC_SWAP
@@ -46,13 +46,11 @@ flowchart BT
     BSC_Helix -.- MC_SWAP
     SOL_Helix -.- MC_SWAP
 
-    wBTC -.- BTC
     SOL_Helix -.- Sol
     BSC_Helix -.- BNB
-    BTC_Helix -.- BTC
 
     linkStyle 0,1 stroke:#940,stroke-width:3px;
-    linkStyle 2,3,4,5,6,7 stroke:#B8F,stroke-width:2px;
+    linkStyle 2,3,4,5 stroke:#B8F,stroke-width:2px;
 
     subgraph -MULTICHAIN-
         MC_SWAP(Multichain Bridge)
@@ -79,27 +77,36 @@ flowchart BT
         BOND(BOND)
         BAL(BAL)
 
-        Helix === |76,140| wETH
-        Helix --- |29,986| ETH_USDC
-        DAI --- |19,651| ETH_USDC
-        ETH_USDC --- |21,654| wETH
-        DAI --- |21,253| wETH
-        ETH_USDT --- |20,252| ETH_USDC
-        wETH --- |970| wBTC
-        TRIBE --- |338| FEI
+        Helix === |45,526| wETH
+        Helix --- |14,374| ETH_USDC
+        DAI --- |23,665| ETH_USDC
+        ETH_USDC --- |22,400| wETH
+        DAI --- |28,895| wETH
+        ETH_USDT --- |21,470| ETH_USDC
+        wETH --- |34,583| wBTC
+        TRIBE --- |690| FEI
         FXS --- |724| FRAX
-        BADGER --- |602| Helix
-        APE --- |536| Helix
-        CULT --- |1,640| wETH
-        BOND --- |847| ETH_USDC
-        BAL --- |2,141| Helix
-        FRAX --- |122| ETH_USDC
-        TRIBE --- |154| Helix
+        BADGER --- |1,423| Helix
+        APE --- |1,491| Helix
+        CULT --- |4,695| wETH
+        BOND --- |786| ETH_USDC
+        BAL --- |2,077| Helix
+        FRAX --- |15,582| ETH_USDC
+        TRIBE --- |669| Helix
     end
 
     subgraph Bitcoin-RSK
-        BTC(RBTC)
+        RBTC(WRBTC)
         BTC_Helix(Helix)
+        RIF(RIF)
+        SOV(SOV)
+        RUSDT((RUSDT)):::stable
+
+        BTC_Helix --- |15,502| RBTC
+        BTC_Helix --- |11,775| RUSDT
+        RUSDT --- |4,384| RBTC
+        RIF --- |5,754| RBTC
+        SOV --- |1,451| RBTC
     end
 
     subgraph Solana
