@@ -45,12 +45,12 @@ flowchart
     Helix --- MC_SWAP
     BSC_Helix -.- MC_SWAP
     SOL_Helix -.- MC_SWAP
+    OKX_Helix -.- MC_SWAP
 
     SOL_Helix -.- Sol
-    BSC_Helix -.- BNB
 
-    linkStyle 0,1 stroke:#940,stroke-width:3px;
-    linkStyle 2,3,4,5 stroke:#B8F,stroke-width:2px;
+    linkStyle 0,1,2 stroke:#940,stroke-width:3px;
+    linkStyle 3,4,5 stroke:#B8F,stroke-width:2px;
 
     subgraph -MULTICHAIN-
         MC_SWAP(Multichain Bridge)
@@ -109,17 +109,32 @@ flowchart
         SOV --- |1,451| RBTC
     end
 
+    subgraph BSC
+        BNB(BNB)
+        BSC_Helix(Helix)
+        BSC_CAKE(CAKE)
+        BUSD((BUSD)):::stable
+        BSC_USDC((USDC)):::stable
+        BSC_USDT((USDT)):::stable
+
+        BSC_Helix --- |4,155| BNB
+        BSC_Helix --- |3,848| BUSD
+        BNB --- |12,700| BUSD
+        BSC_USDC --- |2,750| BUSD
+        BUSD --- |1,200| BSC_USDT
+        BSC_USDC --- |4,640| BNB
+        BSC_CAKE --- |838| BNB
+    end
+
+    subgraph OKX
+        OKX_Helix(Helix)
+    end
+
     subgraph Solana
         Sol(SOL)
         SOL_Helix(Helix)
         SOL_USDC((USDC)):::stable
         SOL_USDT((USDT)):::stable
-    end
-
-    subgraph BSC
-        BNB(BNB)
-        BSC_Helix(Helix)
-        BUSDC((BUSD)):::stable
     end
 ```
 
